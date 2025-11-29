@@ -15,11 +15,11 @@ public class TripDetailsActivity extends AppCompatActivity {
     Button editBtn, deleteBtn;
 
     SharedPreferences prefs;
-    int index;
+    String tripId;
 
     @Override
     protected void onResume() {
-        loadTrip(index);
+        loadTrip(tripId);
         super.onResume();
     }
 
@@ -30,7 +30,7 @@ public class TripDetailsActivity extends AppCompatActivity {
 
         prefs = getSharedPreferences("tripData", Context.MODE_PRIVATE);
 
-        index = getIntent().getIntExtra("tripIndex", -1);
+        tripId = getIntent().getStringExtra("tripId");
 
         name = findViewById(R.id.detailName);
         destination = findViewById(R.id.detailDestination);
@@ -46,16 +46,16 @@ public class TripDetailsActivity extends AppCompatActivity {
 
         editBtn.setOnClickListener(v -> {
             Intent intent = new Intent(this, AddEditTripActivity.class);
-            intent.putExtra("editIndex", index);
+            intent.putExtra("editId", tripId);
             startActivity(intent);
         });
 
         deleteBtn.setOnClickListener(v -> deleteTrip());
     }
 
-    private void loadTrip(int i) {
+    private void loadTrip(String id) {
 
-        String prefix = "trip_" + i + "_";
+        String prefix = id;
 
         String tripName = prefs.getString(prefix + "name", "");
         String dest = prefs.getString(prefix + "destination", "");
@@ -79,7 +79,7 @@ public class TripDetailsActivity extends AppCompatActivity {
     private void deleteTrip() {
         SharedPreferences.Editor editor = prefs.edit();
 
-        String prefix = "trip_" + index + "_";
+        String prefix = tripId;
 
         editor.remove(prefix + "name");
         editor.remove(prefix + "destination");
@@ -90,8 +90,8 @@ public class TripDetailsActivity extends AppCompatActivity {
         editor.remove(prefix + "travelers");
         editor.remove(prefix + "budget");
 
-        int count =  prefs.getInt("count", 0);
-        editor.putInt("count", count - 1);
+//        int count =  prefs.getInt("count", 0);
+//        editor.putInt("count", count - 1);
 
         editor.apply();
         finish();

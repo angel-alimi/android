@@ -41,7 +41,7 @@ public class TripsActivity extends AppCompatActivity {
             public void onTripClick(int pos) {
                 Trip trip = tripList.get(pos);
                 Intent intent = new Intent(TripsActivity.this, TripDetailsActivity.class);
-                intent.putExtra("tripIndex", pos);
+                intent.putExtra("tripId", trip.getId());
                 startActivity(intent);
             }
         });

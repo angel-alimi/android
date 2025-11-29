@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -24,7 +25,7 @@ public class AddEditTripActivity extends AppCompatActivity {
     Button saveBtn;
 
     SharedPreferences prefs;
-    int editIndex = -1;
+    String editId = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +50,9 @@ public class AddEditTripActivity extends AppCompatActivity {
          startDateInput.setOnClickListener(v -> showDatePicker(startDateInput));
         endDateInput.setOnClickListener(v -> showDatePicker(endDateInput));
 
-         editIndex = getIntent().getIntExtra("editIndex", -1);
-        if (editIndex != -1) {
-            loadTripData(editIndex);
+        editId = getIntent().getStringExtra("editId");
+        if (editId != null && !editId.isEmpty()) {
+            loadTripData(editId);
         }
 
         saveBtn.setOnClickListener(v -> saveTrip());
@@ -70,8 +71,8 @@ public class AddEditTripActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void loadTripData(int index) {
-        String prefix = "trip_" + index + "_";
+    private void loadTripData(String id) {
+        String prefix= id;
 
         nameInput.setText(prefs.getString(prefix + "name", ""));
         destinationInput.setText(prefs.getString(prefix + "destination", ""));
@@ -101,8 +102,10 @@ public class AddEditTripActivity extends AppCompatActivity {
 
         SharedPreferences.Editor editor = prefs.edit();
 
-        int index = (editIndex == -1) ? prefs.getInt("count", 0) : editIndex;
-        String prefix = "trip_" + index + "_";
+        int index = prefs.getInt("count", 0);
+        String prefix = TextUtils.isEmpty(  editId ) ? "trip_" +index +
+                "_": editId;
+
 
         editor.putString(prefix + "name", nameInput.getText().toString());
         editor.putString(prefix + "destination", destinationInput.getText().toString());
@@ -118,9 +121,8 @@ public class AddEditTripActivity extends AppCompatActivity {
         editor.putString(prefix + "type", type);
         editor.putBoolean(prefix + "passport", checkPassport.isChecked());
 
-        if (editIndex == -1) {
+        if (TextUtils.isEmpty(  editId )) {
             editor.putInt("count", index + 1);
-            editor.putInt("currentIndex", index + 1);
         }
 
         editor.apply();
