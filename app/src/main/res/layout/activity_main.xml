@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/travel_wallpaper">
+
+        <TextView
+            android:id="@+id/appTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple"
+            android:fontFamily="serif"
+            android:layout_marginBottom="10dp"/>
+        <TextView
+            android:id="@+id/appSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plan_your_next_destination_easily"
+            android:textSize="16sp"
+            android:textColor="#555555"
+            android:fontFamily="serif"
+            android:textStyle="italic"
+            android:layout_marginBottom="30dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btnShowTrips"
+            android:text="@string/view_trips"
+            style="@style/HomeButtonStyle"
+            android:onClick="onclick" />
+
+        <Button
+            android:id="@+id/btnAddTrip"
+            android:text="@string/add_new_trip"
+            style="@style/HomeButtonStyle" />
+
+        <Button
+            android:id="@+id/btnAboutUs"
+            android:text="@string/about_us"
+            style="@style/HomeButtonStyle"
+            android:onClick="showAboutUs"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/splashScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/purple"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="305dp"
+            android:layout_height="338dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/download" />
+
+    </RelativeLayout>
+
+</FrameLayout>

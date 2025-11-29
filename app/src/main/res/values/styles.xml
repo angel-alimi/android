@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+     <style name="HomeButtonStyle">
+        <item name="android:layout_width">250dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+        <item name="backgroundTint">#E8D4B8</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+     <style name="SubtitleStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:layout_marginBottom">30dp</item>
+    </style>
+
+     <style name="TitleStyle">
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+</resources>

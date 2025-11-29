@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">TripPlanner</string>
+    <string name="plan_your_next_destination_easily">Life is too short to stay in one place \n
+          \n     Every trip is new chapter in \n
+         \n   the book of life  \n
+       \n Plan your next destination easily</string>
+
+    <string name="view_trips">View Trips</string>
+    <string name="add_new_trip">Add New Trip</string>
+    <string name="about_us">About Us</string>
+    <string name="title">Trip Planner</string>
+    <string name="trip_name">Trip Name:</string>
+    <string name="nameTrip">Trip Name</string>
+    <string name="destination">Destination:</string>
+    <string name="destinationHint">Destination</string>
+    <string name="start_date">Start Date:</string>
+    <string name="startDate">Start Date</string>
+    <string name="end_date">End Date:</string>
+    <string name="endDate">End Date</string>
+    <string name="trip_type">Trip Type:</string>
+    <string name="business">Business</string>
+    <string name="leisure">Leisure</string>
+    <string name="adventure">Adventure</string>
+    <string name="checklist">Checklist:</string>
+    <string name="passport">Passport</string>
+    <string name="save_trip">Save Trip</string>
+    <string name="budgetInput">Budget</string>
+    <string name="trip_budget">Budget</string>
+    <string name="travelers">Travelers</string>
+    <string name="number_of_travelers">Number of Travelers</string>
+    <string name="tripName">Trip Name</string>
+    <string name="dest">Destination</string>
+    <string name="dates">Dates</string>
+    <string name="type">Type</string>
+    <string name="edit_trip">Edit Trip</string>
+    <string name="delete_trip">Delete Trip</string>
+    <string name="tripname">Trip Name</string>
+</resources>
